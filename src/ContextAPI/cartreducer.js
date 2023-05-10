@@ -3,7 +3,7 @@ const Cartreducer = (state,action) => {
     //Add to cart
 if(action.type === "ADD_TO_CART"){
     let {id,amount,product} = action.payload;
-   
+   console.log(id,amount,product);
     let existingProduct = state.cart.find(
       (curElem) => curElem.id === id
     );
