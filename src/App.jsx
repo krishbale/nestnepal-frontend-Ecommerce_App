@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import { Route, Routes } from 'react-router-dom';
 
 
+
 function App() {
   return (
     <>
@@ -15,7 +16,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact  path="/products" element={<Products />} />
         <Route exact path="/product/:id" element={<Product />} />
-
+       
      
       </Routes>
       <Footer />

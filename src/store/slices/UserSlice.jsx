@@ -11,9 +11,7 @@ const UserSlice = createSlice({
     name:'user',
     initialState:{
         cart: getLocalCartData(),
-        totalAmount:0,
-        totalItem:0,
-    },
+            },
     reducers:{
 
         addtoCart(state,action){

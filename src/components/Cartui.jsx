@@ -6,25 +6,20 @@ import {Button} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Wrapper } from './Cartui.style';
 import { useNavigate } from 'react-router-dom'
-
-import {  Drawer } from '@mui/material';
 import CartItem from './CartItem';
 import { useSelector } from 'react-redux';
 const cartSelector = store => store.users.cart;
-const totalAmountSelector = store => store.users.totalAmount;
-const totalItemSelector = store => store.users.totalItem;
+
 
 
 const Cartui = () => {
     
     const cart = useSelector(cartSelector);
-    const totalAmount = useSelector(totalAmountSelector);
-    const totalItem = useSelector(totalItemSelector);
+   
     // console.log(cart);
 
    // Access the 'cart' property from the Redux state
 
-    const dispatch = useDispatch();
 
     const navigate = useNavigate();
    
@@ -43,7 +38,7 @@ const Cartui = () => {
         ))}
       
         <h2>Total Set:{cart.length}</h2>
-        <h2>Total: ${totalAmount}</h2>
+        <h2>Total: </h2>
         {cart.length && <>
         <div>
         <Button><RemoveShoppingCartIcon /> Remove All</Button>
@@ -51,7 +46,7 @@ const Cartui = () => {
         
           <br />
          <div>
-          <Button  onClick={ () =>  navigate('/checkoutpage')}>Checkout</Button> 
+          <Button  onClick={ () =>  navigate('/checkout')}>Checkout</Button> 
          </div> 
          
           <br /> 

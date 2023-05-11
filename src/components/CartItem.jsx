@@ -1,10 +1,7 @@
 import React from 'react'
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-import DeleteIcon from '@mui/icons-material/Delete';
 import { Wrapper } from './cartitem.style'
-import { Button } from '@mui/material';
+
 import { useDispatch } from 'react-redux';
 
 const CartItem = ({ curElem }) => {
