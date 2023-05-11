@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import { useNavigate } from 'react-router-dom';
-import { addUser } from '../store/slices/UserSlice'
+import { addtoCart } from '../store/slices/UserSlice'
 import { useDispatch } from 'react-redux';
 
 const ShowDetails = ({data ,error ,isLoading}) => {
@@ -10,9 +10,9 @@ const ShowDetails = ({data ,error ,isLoading}) => {
     const {id,title,image,description,category,price,rating} = data;
     // const navigate = useNavigate();
   
-    const addtocart = () => {
+    const handleclick = () => {
         // console.log(data);
-        dispatch(addUser(data))
+        dispatch(addtoCart(data))
     }
     if (error) return <div>Failed to fetch users.</div>
     if (isLoading) return <h2>Loading...</h2>
@@ -55,7 +55,7 @@ const ShowDetails = ({data ,error ,isLoading}) => {
                                         </div>
                                         <p className="text-muted">{description}</p>
                                         <div  className="cart mt-4 align-items-center"> 
-                                        <button onClick={addtocart}  className="btn btn-outline-dark text-uppercase mr-2 px-4">
+                                        <button onClick={handleclick}  className="btn btn-outline-dark text-uppercase mr-2 px-4">
                                         Buy</button>
                                          </div>
                                     </div>

@@ -69,30 +69,61 @@ const UserSlice = createSlice({
             }
             }
         }, 
-        removeItem(state,action){
-           
-            state.splice(action.payload,1)
-        },
+
+      
         increment(state,action){
       
 
-            return [];
+            const updatedcart= state.cart.map((curlElem) => {
+                if(curlElem.id === action.payload) {
+                    return { ...curlElem,quantity:curlElem.quantity + 1};
+                }
+                return curlElem;
+        
+            });
+            return { ...state, cart: updatedcart };
         },
         decrement(state,action){
       
-
-            return [];
+            return{
+                ...state,
+                cart:state.cart.filter((curlElem)=>{
+                    return curlElem.id !== action.payload
+                })
+            }
         },
         clearCart(state,action){
       
 
-            return [];
-        },
+            return { ...state, cart: [] };
+                 }
+                 ,
+                 gettotal(state,action){
+                    let { totalItem, totalAmount } = state.cart.reduce(
+                        (accum, curVal) => {
+                          let { price, quantity } = curVal;
+                  
+                          let updatedTotalAmount = price * quantity;
+                          accum.totalAmount += updatedTotalAmount;
+                  
+                          accum.totalItem += quantity;
+                          return accum;
+                        },
+                        {
+                          totalItem: 0,
+                          totalAmount: 0,
+                        }
+                      );
+                      return { ...state, totalItem, totalAmount };
+                 }
+
+        
         
 
       
 
     },
+    
 )
 export  default  UserSlice.reducer;
-export  const { addtoCart,removeUser,deleteUsers} = UserSlice.actions;
+export  const { addtoCart,increment,decrement,gettotal,clearCart} = UserSlice.actions;
