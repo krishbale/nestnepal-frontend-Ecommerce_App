@@ -15,6 +15,7 @@ const UserSlice = createSlice({
         totalItem:0,
     },
     reducers:{
+
         addtoCart(state,action){
           
             const product  = action.payload;
@@ -69,55 +70,7 @@ const UserSlice = createSlice({
             }
             }
         }, 
-
-      
-        increment(state,action){
-      
-
-            const updatedcart= state.cart.map((curlElem) => {
-                if(curlElem.id === action.payload) {
-                    return { ...curlElem,quantity:curlElem.quantity + 1};
-                }
-                return curlElem;
-        
-            });
-            return { ...state, cart: updatedcart };
-        },
-        decrement(state,action){
-      
-            return{
-                ...state,
-                cart:state.cart.filter((curlElem)=>{
-                    return curlElem.id !== action.payload
-                })
-            }
-        },
-        clearCart(state,action){
-      
-
-            return { ...state, cart: [] };
-                 }
-                 ,
-                 gettotal(state,action){
-                    let { totalItem, totalAmount } = state.cart.reduce(
-                        (accum, curVal) => {
-                          let { price, quantity } = curVal;
-                  
-                          let updatedTotalAmount = price * quantity;
-                          accum.totalAmount += updatedTotalAmount;
-                  
-                          accum.totalItem += quantity;
-                          return accum;
-                        },
-                        {
-                          totalItem: 0,
-                          totalAmount: 0,
-                        }
-                      );
-                      return { ...state, totalItem, totalAmount };
-                 }
-
-        
+       
         
 
       
@@ -126,4 +79,4 @@ const UserSlice = createSlice({
     
 )
 export  default  UserSlice.reducer;
-export  const { addtoCart,increment,decrement,gettotal,clearCart} = UserSlice.actions;
+export  const {   addtoCart} = UserSlice.actions;

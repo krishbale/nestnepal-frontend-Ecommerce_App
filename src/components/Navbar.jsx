@@ -1,7 +1,10 @@
-import React from 'react'
+import { Drawer } from '@mui/material';
+import React ,{useState} from 'react'
+import Cartui from './Cartui';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const [cartOpen, setCartOpen] = useState(false);
     return (
         <div>
 
@@ -14,7 +17,11 @@ const Navbar = () => {
                     <NavLink to="/">
                         <img src="/FakeShop.png" alt="logo" style={{ height: "50px" }} />
                     </NavLink>
-                    <button className="navbar-toggler" type="button">
+                    <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}> 
+                <Cartui  />
+
+                 </Drawer>
+                    <button onClick={() => setCartOpen(true)} className="navbar-toggler" type="button">
                         <i className="fa fa-shopping-cart"></i>
                     </button>
                     <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
