@@ -3,7 +3,7 @@ import React ,{useState} from 'react'
 import Cartui from './Cartui';
 import useSWR from 'swr'
 import { NavLink } from 'react-router-dom';
-
+import Searchresult from '../components/Searchresult'
 
 import { fetcher } from './fetcher/fetcher';
 const Navbar = () => {
