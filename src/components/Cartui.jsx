@@ -28,7 +28,7 @@ const Cartui = () => {
       <>
  
        <Wrapper>
-        <h2>Your Cart</h2>
+        <h2>Order Summary</h2>
         {cart.length === 0 ? <p>No items in cart.</p> : null}
          {cart.map((curElem,index) => (
           <CartItem

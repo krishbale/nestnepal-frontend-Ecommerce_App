@@ -3,6 +3,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { fetcher } from './fetcher/fetcher';
 import useSWR from 'swr'
+// import { fetcher } from './fetcher/fetcher';
+// import useSWR from 'swr'
 
 function Products() {
     const {data,error,isLoading} =  useSWR(`https://fakestoreapi.com/products/`,fetcher);
