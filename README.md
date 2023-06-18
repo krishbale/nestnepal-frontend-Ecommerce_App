@@ -1,5 +1,4 @@
-# nestnepal-frontend-Ecommerce_App
-nestnepal-frontend-Ecommerce_App
+
 
 A simple Ecommerce App  with Navbar including search functionality and add to cart items and Order Summary 
 
